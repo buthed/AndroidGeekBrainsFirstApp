@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Второй макет для GeekBrains" />
+
+        <TextView
+            android:id="@+id/textViewText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Введите текст"
+            android:inputType="text"/>
+
+        <TextView
+            android:id="@+id/textViewTextPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Введите имя"
+            android:inputType="textPersonName"/>
+
+        <TextView
+            android:id="@+id/textViewPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Введите телефон"
+            android:inputType="phone"/>
+
+        <TextView
+            android:id="@+id/textViewNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Введите число"
+            android:inputType="number"/>
+
+        <TextView
+            android:id="@+id/textViewTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Введите пароль"
+            android:inputType="textPassword"/>
+
+        <TextView
+            android:id="@+id/textViewTextEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Введите адрес почты"
+            android:inputType="textEmailAddress"/>
+        <TextView
+            android:id="@+id/textViewTextCapWords"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Введите любимое животное"
+            android:inputType="textCapWords"/>
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
