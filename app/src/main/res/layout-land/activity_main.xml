@@ -21,7 +21,7 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_weight="5"
             tools:ignore="MissingConstraints">
 
             <TableRow
@@ -62,7 +62,7 @@
                     android:theme="@style/ButtonStyleSign" />
 
                 <Button
-                    android:id="@+id/button_percent"
+                    android:id="@+id/button_percent2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -77,7 +77,29 @@
                     android:text="/"
                     android:theme="@style/ButtonStyleSign" />
 
+                <Button
+                    android:id="@+id/button_inv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="INV"
+                    android:theme="@style/ButtonStyleNumbers" />
 
+                <Button
+                    android:id="@+id/button_deg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="DEG"
+                    android:theme="@style/ButtonStyleNumbers" />
+
+                <Button
+                    android:id="@+id/button_percent"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="%"
+                    android:theme="@style/ButtonStyleNumbers" />
             </TableRow>
 
             <TableRow
@@ -118,6 +140,30 @@
                     android:layout_weight="1"
                     android:text="x"
                     android:theme="@style/ButtonStyleSign" />
+
+                <Button
+                    android:id="@+id/button_sin"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="sin"
+                    android:theme="@style/ButtonStyleNumbers" />
+
+                <Button
+                    android:id="@+id/button_cos"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="cos"
+                    android:theme="@style/ButtonStyleNumbers" />
+
+                <Button
+                    android:id="@+id/button_tan"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="tan"
+                    android:theme="@style/ButtonStyleNumbers" />
             </TableRow>
 
             <TableRow
@@ -157,6 +203,30 @@
                     android:layout_weight="1"
                     android:text="-"
                     android:theme="@style/ButtonStyleSign" />
+
+                <Button
+                    android:id="@+id/button_in"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="In"
+                    android:theme="@style/ButtonStyleNumbers" />
+
+                <Button
+                    android:id="@+id/button_log"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="log"
+                    android:theme="@style/ButtonStyleNumbers" />
+
+                <Button
+                    android:id="@+id/button_root"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="√"
+                    android:theme="@style/ButtonStyleNumbers" />
             </TableRow>
 
             <TableRow
@@ -196,6 +266,30 @@
                     android:layout_weight="1"
                     android:text="+"
                     android:theme="@style/ButtonStyleSign" />
+
+                <Button
+                    android:id="@+id/button_p"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="p"
+                    android:theme="@style/ButtonStyleNumbers" />
+
+                <Button
+                    android:id="@+id/button_e"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="e"
+                    android:theme="@style/ButtonStyleNumbers" />
+
+                <Button
+                    android:id="@+id/button_grade"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="^"
+                    android:theme="@style/ButtonStyleNumbers" />
             </TableRow>
 
             <TableRow
@@ -227,6 +321,30 @@
                     android:layout_weight="1"
                     android:text="="
                     android:theme="@style/ButtonStyleSign" />
+
+                <Button
+                    android:id="@+id/button_open_bracket"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="("
+                    android:theme="@style/ButtonStyleNumbers" />
+
+                <Button
+                    android:id="@+id/button_close_bracket"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text=")"
+                    android:theme="@style/ButtonStyleNumbers" />
+
+                <Button
+                    android:id="@+id/button_unequal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="!"
+                    android:theme="@style/ButtonStyleNumbers" />
             </TableRow>
         </TableLayout>
 

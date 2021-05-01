@@ -8,8 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.Serializable;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    String counter;
+    String textForSave;
     String character;
     String resultString;
     String lastActionSymbol;
@@ -17,6 +19,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String secondNumAction;
     Boolean actionChar = false;
     int result;
+
+    private static final String RESULT = "RESULT";
     private TextView textViewInput;
     private Button button0;
     private Button button1;
@@ -143,7 +147,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textViewInput.setText(textViewInput.getText() +",");
             }
         });
 
@@ -151,7 +154,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 actionInput((String) textViewInput.getText(), "+");
-                lastActionSymbol = "+";
             }
         });
 
@@ -159,7 +161,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 actionInput((String) textViewInput.getText(), "-");
-                lastActionSymbol = "-";
             }
         });
 
@@ -167,7 +168,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 actionInput((String) textViewInput.getText(), "*");
-
             }
         });
 
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textViewInput.setText(firstNumForAction);
+               actionEqual((String) textViewInput.getText(), "=");
             }
         });
 
@@ -210,11 +210,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putSerializable(RESULT, (Serializable) textViewInput.getText());
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+        textForSave = (String) savedInstanceState.getSerializable(RESULT);
+        textViewInput.setText(textForSave);
     }
 
     @Override
@@ -227,40 +230,74 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return input;
     }
 
-    public void actionInput(String input, String character) {
-        if (actionChar != true) {
-            firstNumForAction = input;
-            resultString = textViewInput.getText() + character;
-            actionChar = true;
-        } else {
-            secondNumAction = input.substring(firstNumForAction.length()+1, input.length());
-
-            switch (lastActionSymbol) {
-                case "+" :
-                    result = Integer.parseInt(firstNumForAction) + Integer.parseInt(secondNumAction);
-                    break;
-                case "-" :
-                    result = Integer.parseInt(firstNumForAction) - Integer.parseInt(secondNumAction);
-                    break;
-                case "*" :
-                    result = Integer.parseInt(firstNumForAction) * Integer.parseInt(secondNumAction);
-                    break;
-                case "/" :
-                    result = Integer.parseInt(firstNumForAction) / Integer.parseInt(secondNumAction);
-                    break;
-                case "%" :
-                    result = Integer.parseInt(firstNumForAction) * Integer.parseInt(secondNumAction)/100;
-                    break;
-            }
-
-            resultString = Integer.toString(result );
+    private void checkLastSymbol(String input) {
+        String lastChar = input.substring(input.length() - 1);
+        if (lastChar.equals(lastActionSymbol)) {
+            result = Integer.parseInt(clearLastChar(input));
+            resultString = Integer.toString(result);
             firstNumForAction = resultString;
-            resultString = Integer.toString(result ) + character;
+            secondNumAction = input.substring(firstNumForAction.length() + 1, input.length());
+            resultString = Integer.toString(result) + character;
+            lastActionSymbol = character;
         }
+    }
 
+    private void switchAction() {
+        switch (lastActionSymbol) {
+            case "+":
+                result = Integer.parseInt(firstNumForAction) + Integer.parseInt(secondNumAction);
+                break;
+            case "-":
+                result = Integer.parseInt(firstNumForAction) - Integer.parseInt(secondNumAction);
+                break;
+            case "*":
+                result = Integer.parseInt(firstNumForAction) * Integer.parseInt(secondNumAction);
+                break;
+            case "/":
+                result = Integer.parseInt(firstNumForAction) / Integer.parseInt(secondNumAction);
+                break;
+            case "%":
+                result = Integer.parseInt(secondNumAction) / 100 * Integer.parseInt(firstNumForAction) ;
+                break;
+        }
+    }
+
+    public void actionInput(String input, String character) {
+        checkLastSymbol(input);
+            if (!actionChar) {
+                firstNumForAction = input;
+                resultString = textViewInput.getText() + character;
+                actionChar = true;
+            } else {
+
+
+                checkLastSymbol(input);
+                switchAction();
+
+                resultString = Integer.toString(result);
+                firstNumForAction = resultString;
+                resultString = Integer.toString(result) + character;
+            }
+        lastActionSymbol = character;
+        textViewInput.setText(resultString);
+        textViewInput.getText();
+
+    }
+
+    public void actionEqual(String input, String character) {
+        secondNumAction = input.substring(firstNumForAction.length() + 1, input.length());
+
+        switchAction();
+
+        resultString = Integer.toString(result);
+        firstNumForAction = resultString;
+        lastActionSymbol = character;
+        actionChar = false;
         textViewInput.setText(resultString);
         textViewInput.getText();
     }
+
+
 
 }
 
