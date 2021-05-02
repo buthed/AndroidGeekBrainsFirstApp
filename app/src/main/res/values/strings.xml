@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidGeekBrainsFirstApp</string>
+    <string name="calculator_input" />
 </resources>
