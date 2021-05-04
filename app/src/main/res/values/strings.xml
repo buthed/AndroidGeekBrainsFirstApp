@@ -1,4 +1,42 @@
 <resources>
     <string name="app_name">AndroidGeekBrainsFirstApp</string>
-    <string name="calculator_input" />
+
+    //Main buttons
+    <string name="symbol_1">1</string>
+    <string name="symbol_2">2</string>
+    <string name="symbol_3">3</string>
+    <string name="symbol_4">4</string>
+    <string name="symbol_5">5</string>
+    <string name="symbol_6">6</string>
+    <string name="symbol_7">7</string>
+    <string name="symbol_8">8</string>
+    <string name="symbol_9">9</string>
+    <string name="symbol_0">0</string>
+    <string name="symbol_dot">.</string>
+
+    //Functional buttons
+    <string name="symbol_plus">+</string>
+    <string name="symbol_minus">-</string>
+    <string name="symbol_multiply">*</string>
+    <string name="symbol_disagree">/</string>
+    <string name="symbol_equal">=</string>
+    <string name="symbol_ac">AC</string>
+    <string name="symbol_c">C</string>
+
+    //For landscape buttons
+    <string name="symbol_percent">%</string>
+    <string name="symbol_inv">INV</string>
+    <string name="symbol_deg">DEG</string>
+    <string name="symbol_sin">SIN</string>
+    <string name="symbol_cos">COS</string>
+    <string name="symbol_tan">TAN</string>
+    <string name="symbol_in">IN</string>
+    <string name="symbol_log">LOG</string>
+    <string name="symbol_root">√</string>
+    <string name="symbol_p">P</string>
+    <string name="symbol_e">E</string>
+    <string name="symbol_grade">^</string>
+    <string name="symbol_unequal">!</string>
+    <string name="symbol_close">)</string>
+    <string name="symbol_open">(</string>
 </resources>
