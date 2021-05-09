@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ButtonStyleNumbers" parent="Widget.AppCompat.Button">
+    <style name="ButtonStyleNumbers" parent="Widget.MaterialComponents.Button">
         <item name="buttonStyle">@style/ButtonStyleNumbers</item>
-        <item name="android:backgroundTint">#FF274881</item>
-        <item name="android:textSize">15sp</item>
-        <item name="android:layout_width">0dp</item>
+        <item name="android:backgroundTint">@color/numbButtons</item>
+        <item name="android:textSize">@dimen/text_size</item>
     </style>
 
-    <style name="ButtonStyleSign" parent="Widget.AppCompat.Button">
+    <style name="ButtonStyleSign" parent="Widget.MaterialComponents.Button">
         <item name="buttonStyle">@style/ButtonStyleNumbers</item>
-        <item name="android:backgroundTint">#FF918302</item>
-        <item name="android:textSize">15sp</item>
-        <item name="android:layout_width">0dp</item>
+        <item name="android:backgroundTint">@color/funcButtons</item>
+        <item name="android:textSize">@dimen/text_size</item>
     </style>
+
 </resources>
