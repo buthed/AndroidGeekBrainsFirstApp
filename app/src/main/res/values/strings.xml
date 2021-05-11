@@ -39,4 +39,9 @@
     <string name="symbol_unequal">!</string>
     <string name="symbol_close">)</string>
     <string name="symbol_open">(</string>
+
+    //Menu
+    <string name="start_app">Start app</string>
+    <string name="switch_night">Night mode</string>
+
 </resources>
