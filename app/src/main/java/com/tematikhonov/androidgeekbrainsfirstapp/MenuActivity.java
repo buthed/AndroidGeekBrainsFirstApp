@@ -1,12 +1,10 @@
 package com.tematikhonov.androidgeekbrainsfirstapp;
 
-import android.app.UiModeManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.Switch;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,14 +13,11 @@ import androidx.appcompat.widget.SwitchCompat;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private UiModeManager uiModeManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
-        uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
         initView();
     }
 
@@ -50,12 +45,4 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
     }
-
-//    private void NightModeOn(View view) {
-//        uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_YES);
-//    }
-//
-//    private void NightModeOff(View view) {
-//        uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_NO);
-//    }
 }

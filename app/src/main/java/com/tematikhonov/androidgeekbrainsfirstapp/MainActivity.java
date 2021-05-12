@@ -2,25 +2,22 @@ package com.tematikhonov.androidgeekbrainsfirstapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.Serializable;
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    String textForSave;
-    String character;
-    String resultString;
-    String lastActionSymbol;
-    String firstNumForAction;
-    String secondNumAction;
-    Boolean actionChar = false;
-    int result;
-
+public class MainActivity extends AppCompatActivity {
+    private String textForSave;
+    private String character;
+    private String resultString;
+    private String lastActionSymbol;
+    private String firstNumForAction;
+    private String secondNumAction;
+    private Boolean actionChar = false;
+    private int result;
     private static final String RESULT = "RESULT";
+
     private TextView textViewInput;
     private Button button0;
     private Button button1;
@@ -41,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button buttonPercent;
     private Button buttonClear;
     private Button buttonClearAll;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +76,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 textViewInput.setText(textViewInput.getText() + "1");
-
             }
         });
 
@@ -88,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 textViewInput.setText(textViewInput.getText() + "2");
-
             }
         });
 
@@ -103,7 +97,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 textViewInput.setText(textViewInput.getText() + "4");
-
             }
         });
 
@@ -118,7 +111,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 textViewInput.setText(textViewInput.getText() + "6");
-
             }
         });
 
@@ -133,7 +125,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 textViewInput.setText(textViewInput.getText() + "8");
-
             }
         });
 
@@ -210,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putSerializable(RESULT, (Serializable) textViewInput.getText());
+        outState.putString(RESULT, (String) textViewInput.getText());
     }
 
     @Override
@@ -218,11 +209,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onRestoreInstanceState(savedInstanceState);
         textForSave = (String) savedInstanceState.getSerializable(RESULT);
         textViewInput.setText(textForSave);
-    }
-
-    @Override
-    public void onClick(View v) {
-
     }
 
     public String clearLastChar(String input) {
@@ -254,6 +240,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 result = Integer.parseInt(firstNumForAction) * Integer.parseInt(secondNumAction);
                 break;
             case "/":
+                if (Integer.parseInt(secondNumAction) == 0) {
+                break;
+                } else
                 result = Integer.parseInt(firstNumForAction) / Integer.parseInt(secondNumAction);
                 break;
             case "%":
@@ -269,11 +258,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 resultString = textViewInput.getText() + character;
                 actionChar = true;
             } else {
-
-
                 checkLastSymbol(input);
                 switchAction();
-
                 resultString = Integer.toString(result);
                 firstNumForAction = resultString;
                 resultString = Integer.toString(result) + character;
@@ -286,9 +272,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void actionEqual(String input, String character) {
         secondNumAction = input.substring(firstNumForAction.length() + 1, input.length());
-
         switchAction();
-
         resultString = Integer.toString(result);
         firstNumForAction = resultString;
         lastActionSymbol = character;
@@ -296,9 +280,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textViewInput.setText(resultString);
         textViewInput.getText();
     }
-
-
-
 }
-
-
